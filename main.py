@@ -290,3 +290,102 @@ x>>=2 #przesuwa bity w prawo o 2/usuwa dwa ostatnie bity z liczby x=14 binarnie 
 print("Liczba 14 po przesunięciu w prawo o 2 to:",x)
 x<<=5 #przesuwa bity w lewo o 5/dodaje pieć 0 bitów na koniec x=3 binarnie 0011 co daje nam 001100000, czyli 96 (32+64)
 print("Liczba 3 po przesunięciu w lewo o 5 to:",x)
+print("")
+
+'''Python Collections (Arrays)
+There are four collection data types in the Python programming language:
+
+- List is a collection which is ordered and changeable. Allows duplicate members.
+- Tuple is a collection which is ordered and unchangeable. Allows duplicate members.
+- Set is a collection which is unordered, unchangeable*, and unindexed. No duplicate members.
+- Dictionary is a collection which is ordered** and changeable. No duplicate members.
+
+*Set items are unchangeable, but you can remove and/or add items whenever you like.
+**As of Python version 3.7, dictionaries are ordered. In Python 3.6 and earlier, dictionaries are unordered.'''
+
+#Listy
+print("Listy")
+rozszerzona_lista = [] #Tworzenie pustej listy
+lista = ["kasztany", 3, 43.21, "kasztany", True] #Tworzenie listy
+print(lista) #wyświetla całą liczbę
+print(len(lista)) #Długość liczby
+print(lista[2]) #wyświetli 43.21, bo 0,1,2
+print(lista[-1]) #wyświetli ostatni wyraz
+print(lista[1:4]) #od 1 do 4 (wyświetli 1, 2 i 3 wyraz)
+print("")
+
+#Zmiana w liście
+if 3 in lista: #sprawdzenie czy jest w liście
+  print("tak, 3 jest w liście")
+else:
+  print("Liczby 3 nie w liście")
+lista[1] = 27 #Zmiana [1] wyrazu na 27 <-------------------<-------------------
+if 3 in lista: #sprawdzenie czy jest w liście
+  print("Tak, 3 jest w liście")
+else:
+  print("Liczby 3 nie w liście") #3 zostało zamienione na 27 więc nie bezie gow  liście
+lista[1:3] = [13, 19.07] #zmiana wielu wyrazów <-------------------<-------------------
+print(lista)
+print("")
+
+#Dodawanie do listy
+lista.insert(2, "WHOT") #daje obiekt WHOT po 2 wyrazie
+print(lista)
+lista.append(2077) #dodawanie na koniec listy
+print(lista)
+print(rtx)
+print(rozszerzona_lista)
+rozszerzona_lista.extend(lista) #Dodawanie wyrazów z listy "lista" do "rozszerzona_lista"
+print(rozszerzona_lista)
+rozszerzona_lista.extend(rtx)
+print(rozszerzona_lista)
+print("")
+
+#Usuwanie z listy
+lista.remove("kasztany") #usuwa z listy. Kasztany są duplikatem więc usunięte zostały te pierwsze
+print(lista)
+lista.pop(0) #Usuwa indeks [0]
+lista.pop() #usuwa ostatni indeks
+del lista[2] #działa tak samo jak pop(2)
+print(lista)
+rozszerzona_lista.clear() #Usuwa wszystko z listy
+print(rozszerzona_lista)
+del rozszerzona_lista #usuwa listę
+#print(rozszerzona_lista) jest błędem, bo nie ma już listy
+print("")
+
+#Loopowanie/Wymienianie wyrazów z listy
+for x in rtx:
+  print(x) #Wymienia wyrazy z listy
+for i in range(len(lista)):
+  print(lista[i]) #To samo
+y = 0
+while y < len(rtx):
+  print(rtx[y])
+  y += 1 #To samo
+[print(x) for x in lista] #najkrótsza linia by wymienić wyrazy
+print("")
+
+#List comprehension - rozumienie listy
+nowa1 = []
+nowa2 = []
+int = x
+for x in rtx:
+  if x > "3070":
+    nowa1.append(x) #To jest długie zapytanie o to by dało do nowej listy jedynie wyrazy większe od 3070
+print(nowa1)
+nowa2 = [x for x in rtx if x <= "3070"] #Krótkie zapytanie by do nowej listy dało wyrazy równe lub mniejsze 3070
+print(nowa2)
+# newlist = [expression for item in iterable if condition == True]
+liczenie_do_10 = [x for x   in range(10) if x <5] #Stwozenie listy liczb od 0 do 5 wyłącznie
+print(liczenie_do_10)
+wyrazy = ["siemanero", "stuu", "rezi", "multi", "Ruby"]
+nowa3 = [x.upper() for x in wyrazy] #Daje wyrazy jako duże litery
+print(nowa3)
+nowa4 = ['hello' for x in wyrazy] #daje hello za wszystko
+print(nowa4)
+nowa5 = [x if x != "stuu" else "gimper" for x in wyrazy] #zamienia stuu na gimper w nowej liście
+print(nowa5)
+print("")
+
+#Sortowanie list
